@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1><i class="fas fa-wallet"></i> Expense Tracker</h1>
+                <div class="theme-switch">
+                    <span class="theme-icon"><i class="fas fa-sun"></i></span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <section class="balance-section">
+                <div class="balance-card">
+                    <div class="balance-info">
+                        <h3>Your Balance</h3>
+                        <h2 id="balance">₹0.00</h2>
+                    </div>
+                    <div class="balance-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="summary-section">
+                <div class="summary-grid">
+                    <div class="summary-card income-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="summary-details">
+                            <h4>Income</h4>
+                            <p id="income-total">₹0.00</p>
+                        </div>
+                    </div>
+                    <div class="summary-card expense-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="summary-details">
+                            <h4>Expense</h4>
+                            <p id="expense-total">₹0.00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="form-container">
+                    <h3><i class="fas fa-plus-circle"></i> Add Transaction</h3>
+                    <form id="form">
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <div class="select-wrapper">
+                                <select id="type" required>
+                                    <option value="income">Income</option>
+                                    <option value="expense">Expense</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" placeholder="Enter description..." required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">₹</span>
+                                    <input type="number" id="amount" placeholder="0.00" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon"><i class="far fa-calendar"></i></span>
+                                    <input type="date" id="date" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <div class="select-wrapper">
+                                <select id="category" required>
+                                    <option value="">Select category</option>
+                                    <option value="Salary">Salary</option>
+                                    <option value="Freelance">Freelance</option>
+                                    <option value="Investment">Investment</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Utilities">Utilities</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn primary-btn">
+                            <i class="fas fa-plus"></i> Add Transaction
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="transactions-section">
+                <div class="transactions-header">
+                    <h3><i class="fas fa-history"></i> Transaction History</h3>
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <div class="select-wrapper small">
+                                <select id="filter-type">
+                                    <option value="all">All Types</option>
+                                    <option value="income">Income</option>
+                                    <option value="expense">Expense</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <div class="select-wrapper small">
+                                <select id="filter-category">
+                                    <option value="all">All Categories</option>
+                                    <option value="Salary">Salary</option>
+                                    <option value="Freelance">Freelance</option>
+                                    <option value="Investment">Investment</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Utilities">Utilities</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transactions-container">
+                    <ul id="transactions"></ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2025 Expense Tracker | Built with <i class="fas fa-heart"></i></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
